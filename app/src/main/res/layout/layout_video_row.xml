@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="video"
+            type="com.g0ku.movie.tmdb_movie.pojo.Video"/>
+    </data>
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+
+        <com.jaedongchicken.ytplayer.YoutubePlayerView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:video_id="@{video.key}"
+            android:id="@+id/video"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/video"
+            app:layout_constraintEnd_toStartOf="@id/more"
+            android:text="@{video.name}"
+            android:id="@+id/title"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/video"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/more"
+            android:visibility="gone"
+            android:background="?android:attr/selectableItemBackground"
+            android:src="@drawable/ic_more_vert_black_24dp"
+            android:padding="8dp"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

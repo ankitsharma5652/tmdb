@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout >
+
+    <data>
+
+        <variable
+            name="people"
+            type="com.g0ku.movie.tmdb_movie.pojo.People" />
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/bg"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/colorPrimary"
+                app:layout_constraintBottom_toTopOf="@id/guideline" />
+
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.2" />
+
+            <com.pkmmte.view.CircularImageView
+                android:id="@+id/cast_img"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                app:border="true"
+                app:border_color="@color/colorPrimary"
+                app:border_width="4dp"
+                app:circleImg="@{people.profilePath}"
+                app:layout_constraintBottom_toBottomOf="@id/guideline"
+                app:layout_constraintEnd_toEndOf="@id/bg"
+                app:layout_constraintStart_toStartOf="@id/bg"
+                app:layout_constraintTop_toTopOf="@id/guideline"
+                app:shadow="true" />
+
+            <TextView
+                android:id="@+id/cast_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@{people.name}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cast_img"
+                tools:text="DANIEL REDCLIFFE" />
+
+            <android.support.constraint.Group
+                android:id="@+id/biography_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="cast_desc_title," />
+
+            <TextView
+                android:id="@+id/cast_desc_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/biography"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                app:layout_constraintTop_toBottomOf="@id/cast_name" />
+
+            <TextView
+                android:id="@+id/cast_bio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@android:color/white"
+                android:lineSpacingExtra="2dp"
+                android:padding="4dp"
+                android:text="@{people.biography== null ? @string/n_a : people.biography}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                app:layout_constraintEnd_toEndOf="@id/cast_desc_title"
+                app:layout_constraintStart_toStartOf="@id/cast_desc_title"
+                app:layout_constraintTop_toBottomOf="@id/cast_desc_title"
+                tools:text="@string/fab_transformation_scrim_behavior" />
+
+
+            <TextView
+                android:id="@+id/know_for"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:padding="4dp"
+                android:text="@string/known_for"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cast_bio" />
+
+            <TextView
+                android:id="@+id/know_for_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:padding="4dp"
+                android:text="@{people.knownForDepartment}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                app:layout_constraintStart_toEndOf="@id/know_for"
+                app:layout_constraintTop_toTopOf="@id/know_for"
+                tools:text="@string/fab_transformation_scrim_behavior" />
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/people_img"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/know_for"
+                tools:listitem="@layout/layout_cast_row" />
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</layout>

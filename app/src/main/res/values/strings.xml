@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">TMDB-movie</string>
+    <string name="title_home">Home</string>
+    <string name="title_search">Search</string>
+    <string name="title_genre">Genre</string>
+    <string name="url">https://api.themoviedb.org/</string>
+    <string name="more">More</string>
+    <string name="cast">Cast</string>
+    <string name="title">Title</string>
+    <string name="n_a">N/A</string>
+    <string name="img_conf">img.conf</string>
+
+
+    <string name="key">Enter your key></string>
+
+    <string name="title_activity_movie_list">Movie</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="known_for">Known for :</string>
+    <string name="biography">Biography</string>
+    <string name="rating">Rating</string>
+    <string name="duration">Duration</string>
+    <string name="release_date">Release Date</string>
+    <string name="my_player_activity">Player</string>
+    <integer name="list_column">2</integer>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="no_video_found">No Video Found</string>
+</resources>

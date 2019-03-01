@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="movie"
+            type="com.g0ku.movie.tmdb_movie.pojo.Movie" />
+        <import type="android.view.View" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@android:color/white"
+        android:visibility="@{movie == null ? View.GONE : View.VISIBLE}"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/title_cast"
+            style="@style/TextAppearance.AppCompat.Subhead"
+            android:padding="4dp"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/cast"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@id/title_cast"
+            android:id="@+id/cast_list"
+            android:padding="4dp"
+            tools:listitem="@layout/layout_cast_row"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            android:orientation="horizontal"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

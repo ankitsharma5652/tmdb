@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<data>
+    <variable
+        name="cast"
+        type="com.g0ku.movie.tmdb_movie.pojo.Cast" />
+</data>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="4dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <ImageView
+        android:id="@+id/cast_img"
+        android:layout_width="90dp"
+        android:background="@color/dark_Gray"
+        android:scaleType="fitXY"
+        app:bannerImg="@{cast.proflieImgPath}"
+        android:layout_centerHorizontal="true"
+        android:layout_height="120dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cast_img"
+        android:layout_marginStart="10dp"
+        style="@style/TextAppearance.AppCompat.Subhead"
+        tools:text="Ram Malik"
+        android:maxLines="5"
+        android:ellipsize="marquee"
+        android:layout_centerHorizontal="true"
+        android:text="@{cast.name}"
+        android:id="@+id/real_name"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/real_name"
+        android:layout_alignStart="@id/real_name"
+        android:maxLines="5"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:ellipsize="marquee"
+        android:text="@{cast.character}"
+        tools:text="Fake Movie Name"
+        android:id="@+id/movie_name"/>
+
+
+
+</RelativeLayout>
+</layout>
